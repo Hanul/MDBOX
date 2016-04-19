@@ -1,4 +1,4 @@
-MD.MarkUpDOM = METHOD({
+Markdown.MarkUpDOM = METHOD({
 	
 	run : function(params) {
 		'use strict';
@@ -21,7 +21,7 @@ MD.MarkUpDOM = METHOD({
 		if (md === undefined) {
 			el.innerHTML = '';
 		} else {
-			el.innerHTML = MD.MarkUp(md);
+			el.innerHTML = Markdown.MarkUp(md);
 		}
 	}
 });

@@ -1,4 +1,4 @@
-MD.MarkUp = METHOD({
+Markdown.MarkUp = METHOD({
 	
 	run : function(md) {
 		'use strict';

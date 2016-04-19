@@ -1,4 +1,4 @@
-MD.MarkdownSample = CLASS({
+Markdown.MarkdownSample = CLASS({
 
 	preset : function() {
 		'use strict';
@@ -39,14 +39,14 @@ MD.MarkdownSample = CLASS({
 					},
 					on : {
 						keyup : function(e, textarea) {
-							MD.MarkUpDOM({
+							Markdown.MarkUpDOM({
 								dom : content,
 								md : textarea.getValue()
 							});
 						},
 						change : function(e, textarea) {
 							
-							MD.MarkUpDOM({
+							Markdown.MarkUpDOM({
 								dom : content,
 								md : textarea.getValue()
 							});
@@ -76,7 +76,7 @@ MD.MarkdownSample = CLASS({
 			}), CLEAR_BOTH()]
 		}));
 		
-		MD.R('sample.md', function(md) {
+		Markdown.R('sample.md', function(md) {
 			editor.setValue(md);
 		});
 	}

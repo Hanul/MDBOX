@@ -1,7 +1,7 @@
-OVERRIDE(MD.MarkUp, function(origin) {
+OVERRIDE(Markdown.MarkUp, function(origin) {
 	'use strict';
 	
-	MD.MarkUp = METHOD({
+	Markdown.MarkUp = METHOD({
 		
 		run : function(md) {
 			'use strict';
