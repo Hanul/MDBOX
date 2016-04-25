@@ -819,7 +819,7 @@ Renderer.prototype.listitem = function(text) {
 };
 
 Renderer.prototype.paragraph = function(text) {
-  return '<p>' + text + '</p>\n';
+  return '<p>' + text.replace(/\n/g, '<br>') + '</p>\n';
 };
 
 Renderer.prototype.table = function(header, body) {
@@ -883,7 +883,7 @@ Renderer.prototype.link = function(href, title, text) {
   if (title) {
     out += ' title="' + title + '"';
   }
-  out += '>' + text + '</a>';
+  out += ' target="_blank">' + text + '</a>';
   return out;
 };
 
