@@ -58,6 +58,7 @@ Markdown.MarkdownSample = CLASS({
 					flt : 'right',
 					width : '50%',
 					backgroundColor : '#fff',
+					color : '#000',
 					overflowY : 'scroll',
 					onDisplayResize : function(width, height) {
 						return {

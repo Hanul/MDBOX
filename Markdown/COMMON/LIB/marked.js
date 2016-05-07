@@ -789,7 +789,7 @@ Renderer.prototype.blockquote = function(quote) {
 };
 
 Renderer.prototype.html = function(html) {
-  return html;
+  return html.replace(/\n/g, '<br>');
 };
 
 Renderer.prototype.heading = function(text, level, raw) {
