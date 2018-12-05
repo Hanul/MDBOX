@@ -1,35 +1,19 @@
-Markdown.MarkUp = METHOD(function(cls) {
-	'use strict';
+Markdown.MarkUp = METHOD((cls) => {
 	
-	var
-	// is done setting
-	isDoneSetting = false;
+	let isDoneSetting = false;
 	
 	return {
 		
-		run : function(md) {
+		run : (md) => {
 			//OPTIONAL: md
 			
-			var
-			// html
-			html,
-			
-			// footprint regex
-			footprintRegex = /\[\^(\d)\]/g,
-			
-			// footprint match
-			footprintMatch,
-			
-			// footprint bottom regex
-			footprintBottomRegex = /\[\^(\d)\]:/g,
-			
-			// footprint bottom match
-			footprintBottomMatch;
+			let footprintRegex = /\[\^(\d)\]/g;
+			let footprintBottomRegex = /\[\^(\d)\]:/g;
 			
 			if (isDoneSetting !== true) {
 				
 				__marked.setOptions({
-					highlight : function(code) {
+					highlight : (code) => {
 						return hljs.highlightAuto(code).value;
 					}
 				});
@@ -37,13 +21,15 @@ Markdown.MarkUp = METHOD(function(cls) {
 				isDoneSetting = true;
 			}
 			
+			let html;
+			
 			if (md !== undefined) {
 				
 				html = __marked(md);
 					
 				while(true) {
 				
-					footprintBottomMatch = footprintBottomRegex.exec(html);
+					let footprintBottomMatch = footprintBottomRegex.exec(html);
 					
 					if (footprintBottomMatch === TO_DELETE) {
 						break;
@@ -54,7 +40,7 @@ Markdown.MarkUp = METHOD(function(cls) {
 				
 				while(true) {
 				
-					footprintMatch = footprintRegex.exec(html);
+					let footprintMatch = footprintRegex.exec(html);
 					
 					if (footprintMatch === TO_DELETE) {
 						break;

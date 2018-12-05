@@ -1,83 +1,67 @@
 Markdown.MarkdownSample = CLASS({
 
-	preset : function() {
-		'use strict';
-
+	preset : () => {
 		return NODE;
 	},
 
-	init : function(inner, self) {
-		'use strict';
+	init : (inner, self) => {
 		
-		var
-		// editor
-		editor,
-		
-		// content
-		content;
+		let editor;
+		let content;
 		
 		inner.setDom(DIV({
-			c : [DIV({
+			c : [editor = TEXTAREA({
 				style : {
-					flt : 'left',
-					width : '50%',
-					height : '100%'
-				},
-				c : editor = UUI.FULL_TEXTAREA({
-					style : {
-						backgroundColor : '#000',
-						padding : 10,
-						onDisplayResize : function(width, height) {
-							return {
-								height : height - 20
-							};
-						}
-					},
-					textareaStyle : {
-						color : '#fff',
-						lineHeight : '1.4em'
-					},
-					on : {
-						keyup : function(e, textarea) {
-							Markdown.MarkUpDOM({
-								dom : content,
-								md : textarea.getValue()
-							});
-						},
-						change : function(e, textarea) {
-							
-							Markdown.MarkUpDOM({
-								dom : content,
-								md : textarea.getValue()
-							});
-						}
-					}
-				})
-			}), UUI.PANEL({
-				style : {
-					flt : 'right',
-					width : '50%',
-					backgroundColor : '#fff',
-					color : '#000',
-					overflowY : 'scroll',
-					onDisplayResize : function(width, height) {
+					position : 'fixed',
+					left : 0,
+					top : 0,
+					backgroundColor : '#000',
+					color : '#fff',
+					lineHeight : '1.4em',
+					padding : 10,
+					onDisplayResize : (width, height) => {
 						return {
-							height : height
+							width : width / 2 - 20,
+							height : height - 20
 						};
 					}
 				},
-				contentStyle : {
-					padding : 10
-				},
-				c : content = P({
-					style : {
-						fontSize : 14
+				on : {
+					keyup : (e, textarea) => {
+						Markdown.MarkUpDOM({
+							dom : content,
+							md : textarea.getValue()
+						});
+					},
+					change : (e, textarea) => {
+						
+						Markdown.MarkUpDOM({
+							dom : content,
+							md : textarea.getValue()
+						});
 					}
-				})
-			}), CLEAR_BOTH()]
+				}
+			}), content = P({
+				style : {
+					position : 'fixed',
+					right : 0,
+					top : 0,
+					backgroundColor : '#fff',
+					color : '#000',
+					fontSize : 14,
+					padding : 10,
+					overflowY : 'scroll',
+					onDisplayResize : (width, height) => {
+						return {
+							width : width / 2 - 20,
+							height : height - 20
+						};
+					}
+				}
+			})]
 		}));
 		
-		Markdown.R('sample.md', function(md) {
+		Markdown.R('sample.md', (md) => {
 			editor.setValue(md);
 		});
 	}

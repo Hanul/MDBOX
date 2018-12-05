@@ -1,20 +1,14 @@
 Markdown.MarkUpDOM = METHOD({
 	
-	run : function(params) {
-		'use strict';
+	run : (params) => {
 		//REQUIRED: params
 		//REQUIRED: params.dom
 		//OPTIONAL: params.md
 		
-		var
-		// dom
-		dom = params.dom,
+		let dom = params.dom;
+		let md = params.md;
 		
-		// md
-		md = params.md,
-		
-		// el
-		el = dom.getEl();
+		let el = dom.getEl();
 		
 		el.setAttribute('class', 'markdown-body');
 		
