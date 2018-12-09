@@ -28,6 +28,7 @@ Markdown.MarkdownSample = CLASS({
 				},
 				on : {
 					keyup : (e, textarea) => {
+						
 						Markdown.MarkUpDOM({
 							dom : content,
 							md : textarea.getValue()
